@@ -26,8 +26,10 @@ export DOCKER_REPOSITORY={{ docker_repository }}
 
 export NGINX_INGRESS_CONTROLLER_NAME=contrasting-umbrellabird
 export NGINX_INGRESS_SERVICE_NAME=nginx-ingress-service
+export NGINX_INGRESS_CHART_VERSION=4.1.4
+export CERT_MANAGER_CHART_VERSION=v1.8.0
 export DNS_HOSTNAME=${ENVIRONMENT}.${DOMAIN_NAME}
-export CRD_GITHUB_PATH=https://raw.githubusercontent.com/jetstack/cert-manager/release-0.8/deploy/manifests/00-crds.yaml
+# export CRD_GITHUB_PATH=https://raw.githubusercontent.com/jetstack/cert-manager/release-0.8/deploy/manifests/00-crds.yaml
 export DNS_HOSTNAMES=({{ dns_hostnames }})
 export DNS_ZONES=({{ dns_zones }})
 
@@ -50,9 +52,22 @@ do
 done
 export DNS_INGRESS_PARA
 
+export GCE_PROXY_IMAGE=gcr.io/cloudsql-docker/gce-proxy
+export GCE_PROXY_TAG=1.31.0
+
+export SYSCTL_BUDDY_IMAGE=alpine
+export SYSCTL_BUDDY_TAG=3.16
+
+export FLUENTD_GCP_IMAGE=gcr.io/google-containers/fluentd-gcp
+export FLUENTD_GCP_TAG=2.1.1
+
+export PROMETHEUS_TO_SD_IMAGE=gcr.io/google-containers/prometheus-to-sd
+export PROMETHEUS_TO_SD_TAG=v0.9.2
+
 
 # SQL INSTANCE
 
+export SQL_INSTANCE_VERSION=POSTGRES_14
 export SQL_INSTANCE_CPU=1
 export SQL_INSTANCE_MEMORY=4
 export SQL_AUTH_DB_NAME=authentication
